@@ -1,6 +1,15 @@
 import React from 'react'
+import { useSetRecoilState } from 'recoil';
+import { AuthModelState } from '@/Atoms/AuthModelAtoms';
+
 
 function SignIn() {
+
+	const setAuthModelState=useSetRecoilState(AuthModelState);
+	const handleClick=(type:"forgetPassword"|"SignUp"|"SignIn" )=>{
+		 setAuthModelState((prev)=>({...prev,type}));
+	}
+
   return (
     <div>
       <form className='space-y-6 px-6 pb-4' >
@@ -48,7 +57,7 @@ function SignIn() {
 				{/* // {loading ? "Loading..." : "Log In"} */}
 			</button>
 			<div >
-               <p className='text-center flex justify-between'>already have 🧑🏿‍💻? <span className='font-bold text-green-700'>SignIn</span> : <span className='font-bold text-blue-600'> create new 🌚</span></p>
+               <p className='text-center flex justify-between'>already have 🧑🏿‍💻? <span className='font-bold text-green-700'> <a href="#" onClick={()=>handleClick("SignIn")}  >SignIn</a> </span> : <span className='font-bold text-blue-600'> <a href="#" onClick={()=>handleClick("SignUp")}  >create new 🌚</a></span></p>
             </div>
 		</form>
     </div>
