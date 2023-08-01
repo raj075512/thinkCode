@@ -20,7 +20,8 @@ function AuthModel() {
                         <IoClose />
                     </button>
                 </div>
-                <SignIn/>
+               
+                <SignIn />
             </div>
         </div>
     </div>
