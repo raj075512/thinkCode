@@ -1,11 +1,15 @@
 import Navbar from "../components/Navbar";
 import { IoClose } from "react-icons/io5"
-// import SignIn from "./SignIn";
-// import CloseTwoToneIcon from '@mui/icons-material/CloseTwoTone';
+
 
 import AuthModel from "../Models/AuthModel";
 import SignIn from "../Models/SignIn";
+import {useRecoilValue} from "recoil";
+import { AuthModelState } from "@/Atoms/AuthModelAtoms";
+
+
 export default function authPath() {
+    const authModel=useRecoilValue(AuthModelState)
     return (
 
         <>
@@ -18,7 +22,10 @@ export default function authPath() {
                 <div className="flex items-center justify-center h-[calc(100vh-5rem)] pointer-events-none select-none ">
                     <img src="\hero.png" alt="main" />
                 </div>
-                <AuthModel />
+                {
+                    authModel .isOpen && <AuthModel/>
+                }
+               
             </div>
         </>
 

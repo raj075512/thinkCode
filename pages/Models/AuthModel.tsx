@@ -3,8 +3,12 @@ import React from 'react'
 import SignIn from './SignIn'
 import {IoClose} from "react-icons/io5"
 import SignUp from './SignUp'
+import {useRecoilValue} from "recoil"
+import { AuthModelState } from '@/Atoms/AuthModelAtoms'
+import ForgetPassword from './ForgetPassword'
 
 function AuthModel() {
+    const authModel=useRecoilValue(AuthModelState)
   return (
       <>
     
@@ -21,7 +25,7 @@ function AuthModel() {
                     </button>
                 </div>
                
-                <SignIn />
+                {authModel.type ==="SignIn" ? <SignIn/>: authModel.type === "SignUp"? <SignUp/>: <ForgetPassword/>}
             </div>
         </div>
     </div>
