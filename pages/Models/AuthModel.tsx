@@ -1,14 +1,17 @@
 // import { Sign } from 'crypto'
-import React from 'react'
+import React, { useEffect } from 'react'
 import SignIn from './SignIn'
 import {IoClose} from "react-icons/io5"
 import SignUp from './SignUp'
-import {useRecoilValue} from "recoil"
+import {useRecoilValue, useSetRecoilState} from "recoil"
 import { AuthModelState } from '@/Atoms/AuthModelAtoms'
 import ForgetPassword from './ForgetPassword'
 
 function AuthModel() {
-    const authModel=useRecoilValue(AuthModelState)
+     const authModel=useRecoilValue(AuthModelState)
+   
+   const handleCloseClick=useCloseStatePath();
+
   return (
       <>
     
@@ -20,7 +23,9 @@ function AuthModel() {
                     <button
                         type='button'
                         className='bg-transparent  rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-gray-800 hover:text-white text-white'
-                    >
+                     onClick={handleCloseClick}
+                     
+                   >
                         <IoClose />
                     </button>
                 </div>
@@ -37,3 +42,27 @@ function AuthModel() {
 }
 
 export default AuthModel
+
+
+// function call -> use effect called in these region //
+
+
+
+function useCloseStatePath()
+{
+   const setAuthModelState=useSetRecoilState(AuthModelState);
+   const closeModelFunction=()=>{
+    setAuthModelState((prev)=>({...prev,isOpen:false,type:"SignIn"}))
+   }
+   useEffect(() => {
+      const handleEsc = (e: keyboardEvent)=>{
+        if(e.key==="Escape") closeModelFunction();  
+    }
+        window.addEventListener("keydown",handleEsc) ;
+        return ()=>
+            window.removeEventListener("keydown",handleEsc)
+        
+      
+   }, [])
+   return closeModelFunction;
+}
