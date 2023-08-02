@@ -1,6 +1,7 @@
 // import ProblemsTable from "@/components/ProblemsTable/ProblemsTable";
 // import Topbar from "@/components/Topbar/Topbar";
 // import Topbar from ""
+import ProblemsTable from "./components/ProblemTable/ProblemsTable";
 import Topbar from "./components/Topbar";
 // import useHasMounted from "@/hooks/useHasMounted";
 
@@ -50,7 +51,7 @@ export default function Home() {
 									
 								</tr>
 							</thead>
-						
+						<ProblemsTable/>
 						{/* <ProblemsTable setLoadingProblems={setLoadingProblems} /> */}
 					</table>
 				</div>
