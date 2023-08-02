@@ -1,6 +1,7 @@
 // import ProblemsTable from "@/components/ProblemsTable/ProblemsTable";
 // import Topbar from "@/components/Topbar/Topbar";
 // import Topbar from ""
+import Navbar from "./components/Navbar";
 import ProblemsTable from "./components/ProblemTable/ProblemsTable";
 import Topbar from "./components/Topbar";
 // import useHasMounted from "@/hooks/useHasMounted";
@@ -9,32 +10,24 @@ import { useState } from "react";
 
 export default function Home() {
 	const [loadingProblems, setLoadingProblems] = useState(true);
-	// const hasMounted = useHasMounted();
-
-	// if (!hasMounted) return null;
+	
 
 	return (
 		<>
 			<main className='bg-dark-layer-2 min-h-screen'>
-				<Topbar />
+				<Navbar />
 				<h1
 					className='text-2xl text-center text-gray-700 dark:text-gray-400 font-medium
 					uppercase mt-10 mb-5'
 				>
 					 QUALITY OVER QUANTITY  👇
 				</h1>
-				<div className='relative overflow-x-auto mx-auto px-6 pb-10'>
-					{/* {loadingProblems && (
-						<div className='max-w-[1200px] mx-auto sm:w-7/12 w-full animate-pulse'>
-							{[...Array(10)].map((_, idx) => (
-								<LoadingSkeleton key={idx} />
-							))}
-						</div>
-					)} */}
-					<table className='text-sm text-left text-gray-500 dark:text-gray-400 sm:w-7/12 w-full max-w-[1200px] mx-auto'>
+				<div className='relative overflow-x-auto mx-auto px-6 pb-10 '>
+					
+					<table className='text-sm text-left text-gray-500 border-3 dark:text-gray-400 sm:w-7/12 w-full max-w-[1200px] mx-auto'>
 						
 							<thead className='text-xs text-gray-700 uppercase dark:text-gray-400 border-b '>
-								<tr>
+								<tr >
 									<th scope='col' className='px-1 py-3 w-0 font-medium'>
 										Status
 									</th>
@@ -51,9 +44,11 @@ export default function Home() {
 									
 								</tr>
 							</thead>
-						<ProblemsTable/>
-						{/* <ProblemsTable setLoadingProblems={setLoadingProblems} /> */}
+							
+							<ProblemsTable/>
 					</table>
+					
+					
 				</div>
 			</main>
 		</>
