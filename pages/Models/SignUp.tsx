@@ -17,7 +17,7 @@ function SignUp() {
 
 	const handleSubmit=(e)=>{
 		e.preventDefault();
-
+         console.log(user);
 	}
   return (
     <div>

@@ -12,9 +12,7 @@ export default function authPath() {
     const authModel=useRecoilValue(AuthModelState)
     return (
 
-        <>
-
-
+  
 
             <div className="bg-gray-200 h-screen relative">
 
@@ -27,7 +25,7 @@ export default function authPath() {
                 }
                
             </div>
-        </>
+    
 
     )
 }

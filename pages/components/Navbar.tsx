@@ -3,8 +3,8 @@ import Link from "next/link"
 import { useSetRecoilState } from "recoil"
 
 function Navbar() {
-   // set the auth model state //
-
+   // set the auth model  state //
+ 
    const setHandleAuthState=useSetRecoilState(AuthModelState)
   const handleSignIn=()=>{
       setHandleAuthState((prev)=>({...prev,isOpen:true}))
