@@ -1,19 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSetRecoilState } from 'recoil';
 import { AuthModelState } from '@/Atoms/AuthModelAtoms';
 
 function SignUp() {
+	
+	const [user,setUser]=useState({email:"",password:"",confirmPassword:""});
+
 	const setAuthModelState=useSetRecoilState(AuthModelState);
 	const handleClick=(type:"forgetPassword"|"SignUp"|"SignIn" )=>{
 		 setAuthModelState((prev)=>({...prev,type}));
 	}
+	// set the users and only change the email not others //
+	const handleChange=(e)=>{
+		setUser((prev)=>({...prev,[e.target.email]:e.target.value})) ;
+	} 
+
+	const handleSubmit=(e)=>{
+		e.preventDefault();
+
+	}
   return (
     <div>
-      <form className='space-y-6 px-6 pb-4' >
+      <form className='space-y-6 px-6 pb-4'onSubmit={handleSubmit} >
 			<h3 className='text-xl font-medium text-white'>Sign Up to LeetClone</h3>
             <p><span className='font-bold'>Explore </span> your ability and gain exeriance </p>
 			<div  className='my-4'>
-				<label htmlFor='email' className='text-sm font-medium block mb-2 '>
+				<label htmlFor='email' className='text-sm font-medium block mb-2 ' onChange={handleChange}>
 					Your Email
 				</label>
 				<input
@@ -68,7 +80,7 @@ function SignUp() {
             '
 			>
                 submit
-				{/* // {loading ? "Loading..." : "Log In"} */}
+			
 			</button>
 			<div >
                <p className='text-center flex justify-center'>Already have one ?  <span className='font-bold text-green-700'>  <a href="#" onClick={()=>handleClick("SignIn")}  >  👆🏿Login</a>  </span> </p>
