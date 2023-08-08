@@ -1,23 +1,52 @@
 import React, { useState } from 'react'
 import { useSetRecoilState } from 'recoil';
 import { AuthModelState } from '@/Atoms/AuthModelAtoms';
+import { Router, useRouter } from 'next/router';
+import { Auth } from 'firebase/auth';
+import {userCreateUserWithEmilAndPassword} from "react-firebase-hooks/auth";
 
 function SignUp() {
-	
+  const router =useRouter();	
+
 	const [user,setUser]=useState({email:"",password:"",confirmPassword:""});
+   
+	 // store the new user detial and then send it into firebase //
+	 const [
+		createNewUserWithEmilAndPassword,
+		user,
+		loading,
+		error,
+	 ]=userCreateUserWithEmilAndPassword(auth);
+
 
 	const setAuthModelState=useSetRecoilState(AuthModelState);
+
 	const handleClick=(type:"forgetPassword"|"SignUp"|"SignIn" )=>{
 		 setAuthModelState((prev)=>({...prev,type}));
 	}
+
 	// set the users and only change the email not others //
 	const handleChange=(e)=>{
 		setUser((prev)=>({...prev,[e.target.email]:e.target.value})) ;
 	} 
-
-	const handleSubmit=(e)=>{
+ 
+	// post the new user from client side to server side (firebase ) // POST method
+	const handleSubmit= async(e)=>{
 		e.preventDefault();
          console.log(user);
+
+		 try {
+			
+			const newUser= await userCreateUserWithEmilAndPassword(inputs.email,inputs.password,input.confirmPassword) ;
+		  if(newUser)
+		  {
+			router.push('/');
+			alert("post done");
+		  }else  
+		  return ;
+		} catch (error) {
+			alert(error.message);
+		 }
 	}
   return (
     <div>
@@ -41,7 +70,7 @@ function SignUp() {
 				/>
 			</div>
 			<div>
-				<label htmlFor='password' className='text-sm font-medium block mb-2 '>
+				<label htmlFor='password' className='text-sm font-medium block mb-2 ' onChange={handleChange}>
 					 Password
 				</label>
 				<input
@@ -57,7 +86,7 @@ function SignUp() {
 				/>
 			</div>
 			<div>
-				<label htmlFor='password' className='text-sm font-medium block mb-2 '>
+				<label htmlFor='password' className='text-sm font-medium block mb-2 ' onChange={handleChange}>
 					confirm password
 				</label>
 				<input
