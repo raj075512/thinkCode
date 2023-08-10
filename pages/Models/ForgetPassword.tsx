@@ -7,7 +7,7 @@ function SignIn() {
 
 	const setAuthModelState=useSetRecoilState(AuthModelState);
 	const handleClick=(type:"forgetPassword"|"SignUp"|"SignIn" )=>{
-		 setAuthModelState((prev)=>({...prev,type}));
+		 setAuthModelState(( prev )=>({...prev,type}));
 	}
 
   return (
