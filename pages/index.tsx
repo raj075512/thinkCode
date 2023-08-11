@@ -1,7 +1,8 @@
 // import ProblemsTable from "@/components/ProblemsTable/ProblemsTable";
 // import Topbar from "@/components/Topbar/Topbar";
 // import Topbar from ""
-import Navbar from "./components/Navbar";
+
+import ProblemNavbar from "./components/ProblemTable/ProblemNavbar";
 import ProblemsTable from "./components/ProblemTable/ProblemsTable";
 
 // import useHasMounted from "@/hooks/useHasMounted";
@@ -11,11 +12,12 @@ import { useState } from "react";
 export default function Home() {
 	const [loadingProblems, setLoadingProblems] = useState(true);
 	
+	
 
 	return (
 		<>
 			<main className='bg-dark-layer-2 min-h-screen'>
-				<Navbar />
+				<ProblemNavbar />
 				<h1
 					className='text-2xl text-center text-gray-700 dark:text-gray-400 font-medium
 					uppercase mt-10 mb-5'

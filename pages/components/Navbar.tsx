@@ -7,7 +7,7 @@ function Navbar() {
  
    const setHandleAuthState=useSetRecoilState(AuthModelState)
   const handleSignIn=()=>{
-      setHandleAuthState((prev)=>({...prev,isOpen:true}))
+      setHandleAuthState((prev)=>({...prev,isOpen:true,type:"SignIn"}))
   }
 
   return (
