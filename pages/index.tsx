@@ -2,8 +2,8 @@
 // import Topbar from "@/components/Topbar/Topbar";
 // import Topbar from ""
 
-import ProblemNavbar from "./components/ProblemTable/ProblemNavbar";
-import ProblemsTable from "./components/ProblemTable/ProblemsTable";
+import ProblemNavbar from "./problems/ProblemTable/ProblemNavbar";
+import ProblemsTable from "./problems/ProblemTable/ProblemsTable";
 
 // import useHasMounted from "@/hooks/useHasMounted";
 

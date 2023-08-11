@@ -2,9 +2,9 @@ import { AuthModelState } from "@/Atoms/AuthModelAtoms"
 import Link from "next/link"
 import { useSetRecoilState } from "recoil"
 
-function Na vbar() {
+function Navbar() {
    // set the auth model  state //
- 
+
    const setHandleAuthState=useSetRecoilState(AuthModelState)
   const handleSignIn=()=>{
       setHandleAuthState((prev)=>({...prev,isOpen:true,type:"SignIn"}))

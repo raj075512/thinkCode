@@ -1,4 +1,4 @@
-import { problems } from '@/pages/ProblemSet/Problem'
+import { problems } from '@/pages/problems/ProblemTable/Problems'
 import React from 'react'
 import {BsCheckCircle} from "react-icons/bs"
 import Link from 'next/link'
