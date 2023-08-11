@@ -2,3 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.IDE_frontEnd_css{
+    margin: 1rem;
+   
+      background-color: rgb(214, 214, 214);
+    height: 90vh;
+}
+.problem_dec_css{
+    height: 89vh;
+    overflow-y: auto;
+    
+}
+.split {
+     
+    display: flex;
+    flex-direction: row;
+}
+
+.gutter {
+    background-color: #898585;
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
+}

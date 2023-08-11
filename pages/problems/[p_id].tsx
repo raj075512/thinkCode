@@ -1,12 +1,18 @@
 import React from 'react'
 import ProblemNavbar from './ProblemTable/ProblemNavbar'
 
+import SplitDescription_and_IDE from '../components/splitDescription_and_IDE'
+
 function problemPage() {
   return (
-    <div className='border-2 border-gray-400 '>
-        <ProblemNavbar/>
-           
-    </div>
+    
+    <>
+    
+     <SplitDescription_and_IDE/>
+    
+    </>
+   
+    
   )
 }
 
